@@ -1,4 +1,5 @@
 // Houlaymatou B. | @code_techhb
+
 // -------------------------
 // Chap 2: Intro to c++ 
 // Goal 🎯: Variable declaration and displaying a message on the screen
@@ -6,7 +7,6 @@
 /*Programming Challenges - Problem 1: Sales Prediction
 
 The East Coast sales division of a company generates 58 percent of total sales. Based on that percentage, write a program that will predict how much the East Coast division will generate if the company has $8.6 million in sales this year. Display the result on the screen. */
-
 // -------------------------
 
 #include <iostream> // preprocessor directive to include input-output functions
