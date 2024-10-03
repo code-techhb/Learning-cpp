@@ -1,7 +1,7 @@
 // Houlaymatou B. | @code_techhb
 
 // -------------------------
-// Chap 5: Loopings
+// Chap 5: Looping
 // Goal 🎯: Practice while, do while, and for loops.
 
 /*Programming Challenges - Problem 1: Sales Bar chart
