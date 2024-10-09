@@ -1,0 +1,6 @@
+----- Three-Month Period Report -----
+Starting Balance:   $    100.00
+Total Deposits:     $   3690.00
+Total Withdrawn:    $    210.00
+Total Interest:     $      0.00
+Final Balance:      $   3580.00
