@@ -26,7 +26,7 @@ int main(){
     counter=0;
 
     // number between 1 - 150
-    random_num = rand() % MAX_VALUE + 1;
+    random_num = rand() % MAX_VALUE + MIN_VALUE;
     // cout<<"🚨Testing Purposes:  "<<random_num;
 
     // prompt user
