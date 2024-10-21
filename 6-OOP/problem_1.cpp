@@ -11,9 +11,7 @@ The class should have just one public function, computeTip.  This function needs
 Validation:  The tax rate entered by the user should be validated to ensure that it is greater than or equal to zero.
 
 */
-// ------------------------- Quick Draft code ------------------------------
-// PS: need to come back and improve program
-
+// ------------------------- Code ------------------------------
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -25,45 +23,75 @@ class Tips {
 
   public:
     // constructor if argument is passed to future obj
-    Tips(float rate){
+    Tips(float rate) {
+      // Validate tax rate
+      while (rate < 0) {
+        cout << "Error: Tax rate must be a positive value. Please enter again: ";
+        cin >> rate;
+      }
       taxRate = rate;
-      // need to validate user input later
     }
 
-    // constructor if no argument is passed to future obj
-    Tips(){
+   // constructor if no argument is passed to future obj
+    Tips() {
       taxRate = 0.085;
     }
 
-    float computeTip(float total_bill, float tip_rate){
+    // Function to compute the tip amount
+    float computeTip(float total_bill, float tip_rate) {
       float meal_cost, tip_amount;
-
-      meal_cost = (total_bill/(1+taxRate));
-      tip_amount = meal_cost * tip_rate;
-
+      meal_cost = total_bill / (1 + taxRate);  
+      tip_amount = meal_cost * tip_rate;      
       return tip_amount;
     }
 };
 
-// main
-int main(){
-  //variable declaration
-  float bill, tip_rate, tip_amount;
+// Main 
+int main() {
+  // Variable declarations
+  float bill, tip_rate, tip_amount, userTaxRate;
+  char tax_option, should_continue;
+  Tips tips_Calculator; //tips obj
 
-  // prompt user
-  cout<<"This program will compute a restaurant tip based on total bill amount and tip rate.\nPlease enter: \n";
-  cout<<"The Total bill: $"<<endl;
-  cin>>bill;
-  cout<<"The tip percentage in decimals:  "<<endl;
-  cin>>tip_rate;
+  cout<<"\nWelcome to your tip calculator 💰!";
+  // Ask user if they want to specify a tax rate or use the default
+  cout << "\n\nWould you like to specify a tax rate? (y/n): ";
+  cin >> tax_option;
+  
+  // Create a Tips object based on user's choice
+  if (tolower(tax_option) == 'y') {
+    cout << "Please enter the Business's tax rate in decimals (example: 0.15 for 15%): ";
+    cin >> userTaxRate;
+    // use constructor w/ arg
+    tips_Calculator = Tips(userTaxRate);
+  } else {
+    // Use default constructor w/ fixed rate
+    cout<<"No worries! We'll apply the state tax rate of 0.085 😊";
+    tips_Calculator = Tips();
+  }
 
-  // object 
-  Tips tips_Calculator;
-  tip_amount = tips_Calculator.computeTip(bill, tip_rate);
+  // calculate tips
+  do {
+    // Prompt user 
+    cout << "\nEnter the total bill amount: $";
+    cin >> bill;
+    cout << "Enter the tip rate in decimals (example: 0.15 for 15%): ";
+    cin >> tip_rate;
 
-  // output
-  cout<<"The total tip amount is $"<<tip_amount<<endl;
+    // Computation 
+    tip_amount = tips_Calculator.computeTip(bill, tip_rate);
 
+    // Output the result
+    cout << fixed << setprecision(2);
+    cout << "\nThe total tip amount is: $" << tip_amount << endl;
+
+    // Ask if user wants to calculate another tip
+    cout << "Would you like to compute another tip? (y/n): ";
+    cin >> should_continue;
+  } while (tolower(should_continue) != 'n');
+  system("clear");
+  
+  cout<<"\nOkay. Have a lovely day 🌷!"<<endl;
   return 0;
 }
 
