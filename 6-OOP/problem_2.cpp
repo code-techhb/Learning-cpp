@@ -25,8 +25,7 @@ class Date{
     int day;
     int year;
 
-  public:
-  // leap or not 
+    // leap or not 
   bool isLeap(int y){
     if ((y%4==0) && (y%100!=0 || y%400==0)){
       return true;
@@ -78,27 +77,99 @@ class Date{
     return true;
   }
 
-  // contructor
+    string nameMonth(int month){
+    switch (month) {
+      case 1:
+        return "January";
+        break;
+      case 2:
+        return "February";
+        break;
+      case 3:
+        return "March";
+        break;
+      case 4:
+        return "April";
+        break;
+      case 5:
+        return "May";
+        break;
+      case 6:
+        return "June";
+        break;
+      case 7:
+        return "July";
+        break;
+      case 8:
+        return "August";
+        break;
+      case 9:
+        return "September";
+        break;
+      case 10:
+        return "October";
+        break;
+      case 11:
+        return "November";
+        break;
+      default:
+        return "December";
+    }
+  }
+
+  public:
+  // Default constructor
+  Date() {
+      day = 1;
+      month = 1;
+      year = 2001;
+  }
+  // contructor with parameters
   Date(int passed_month, int passed_day, int passed_year){
     if (isValid(passed_month, passed_day, passed_year)){
       day = passed_day;
       month = passed_month;
       year = passed_year;
     } else{
+      cout<<"\n\nThe values you entered were invalid. We resolved to the default date in the system!\n";
       day = 1;
       month = 1;
       year=2001;
     }
   }
-
   // write member functions to print the dates in different format
+  void printDate(){
+    string month_string = nameMonth(month);
+    cout<<"Writing the date in 3 ways\n\n";
+    cout<<"1-Numerical Format: "<<month<<"/"<<day<<"/"<<year<<endl;
+    cout<<"2-Long-form: "<<month_string<<" "<<day<<", "<<year<<endl;
+    cout<<"3-International Format: "<<day<<" "<<month_string<<" "<<year<<endl<<endl;
+  }
 
 };
  
-
-
 // main
 int main(){
 
+  // variable
+  char option;
+  int month, day, year;
+  Date mydate; //create object
+  cout<<"\nHello, would you like to pass a date to our object or do you want to use the default date.\nType P to pass or D to use default date: ";
+  cin>>option;
+
+  if(tolower(option)=='p'){
+    cout<<"Enter the month: ";
+    cin>>month;
+    cout<<"Enter the day: ";
+    cin>>day;
+    cout<<"Enter the year: ";
+    cin>>year;
+    mydate = Date(month, day, year);
+  } else{
+    mydate = Date();
+  }
+  // instantiate an obj
+  mydate.printDate();
   return 0;
 }
