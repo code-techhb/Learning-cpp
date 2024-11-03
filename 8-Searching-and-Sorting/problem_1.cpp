@@ -10,24 +10,42 @@ You will write a program that allows the user to enter 10 songs and their artist
 // ------------------------- code ------------------------------
 #include <iostream>
 #include <string>
+#include <iomanip>
 using namespace std;
 
 // Constant for array size
-const int SIZE_OF_ARR=3;
+const int SIZE_OF_ARR=10;
 
 // define structure 
 struct Song {
   string title;
   string artist;
 };
+
 // Function prototype
 void getSongs(Song []); 
 void selection_sort(Song []);
-void printPlaylist(Song []);
+void printContent(Song []);
 
+// ---------------- main program ---------------------
+int main(){
+
+  // variable declaration
+  Song playlist[SIZE_OF_ARR];
+  cout<<"\n\nList of your 10 favorite Songs to be sorted by artist name!";
+
+  // function call
+  getSongs(playlist);
+  selection_sort(playlist);
+  printContent(playlist);
+
+  // end of program
+  return 0;
+}
+
+// ---------------- Function definitions ---------------------
 // Function to get song details from the user
 void getSongs(Song arr[]){
-  // FIX THIS LATER 3 to 10
   for(int i=0; i< SIZE_OF_ARR; i++){
     cout << "\nEnter details for song " << (i + 1) << ":" << endl;
     cout<<"Title: ";
@@ -58,22 +76,13 @@ void selection_sort(Song arr[]){
 
 // Function to print the sorted playlist
 void printContent(Song arr[]) {
-  cout << "\n\nArtist - Title in sorted order:" << endl;
-  cout << "--------------------------------" << endl;
-  for(int i = 0; i < SIZE_OF_ARR; i++) {
-    cout << arr[i].artist << " - " << arr[i].title << endl;
-  }
+    cout << "\n\n";
+    cout << setw(10) << right << "Playlist sorted alphabetically by artist\n" << endl;  // Centered title
+    cout << left << setw(20) << "Artist" << "Title" << endl;
+    cout << "===============================" << endl;
+    // Loop through and display each song
+    for(int i = 0; i < SIZE_OF_ARR; i++) {
+        cout << left << setw(20) << arr[i].artist << arr[i].title << endl;
+    }
 }
-
-// main program
-int main(){
-  // variable declaration
-  Song playlist[SIZE_OF_ARR];
-  getSongs(playlist);
-  selection_sort(playlist);
-  printContent(playlist);
-
-  return 0;
-}
-
 
