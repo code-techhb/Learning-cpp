@@ -1,0 +1,1 @@
+Testing Data: An input stream is a sequence from which data can be read; an output stream is a sequence to which data can be written; and an input–output stream is a sequence of data that allows both reading and writing. The keyboard is the standard example of an input stream, and the monitor screen is the standard example of an output stream.
