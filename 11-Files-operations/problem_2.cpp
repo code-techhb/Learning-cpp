@@ -17,6 +17,7 @@ using namespace std;
 // Function prototype
 void decrypt(ifstream &inputFile, ofstream &outputFile, int secretNumber);
 
+// ------------------------- main program ------------------------------
 int main() {
   // Variable declaration
   string encryptedFileName = "encrypted.txt";
@@ -57,6 +58,7 @@ int main() {
   return 0;
 }
 
+// ---------------- Function definitions ---------------------
 void decrypt(ifstream &inputFile, ofstream &outputFile, int secretNumber) {
   char ch; 
 
