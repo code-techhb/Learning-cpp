@@ -48,7 +48,7 @@ int main() {
 
   // Edge case
   if (secretNumber % 26 == 0) {
-    cout << "Warning ⚠️: Secret number is a multiple of 26, so it will be treated as 18 for encryption.\nDon't forget to keep it SECRET 🤫!"<< endl;
+    cout << "\nWarning ⚠️: The secret number you entered is a multiple of 26, so it will be treated as 18 for encryption.\nDon't forget to keep 18 secret 🤫 and ONLY share it with the recipient of your message!!"<< endl;
     secretNumber = 18; 
   }
   // handle negative int
