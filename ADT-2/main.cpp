@@ -14,7 +14,7 @@
 #include <iostream>
 #include <string>
 #include "LinkedStack.h"
-#include "PrefixEvaluator.cpp"
+#include "PrefixEvaluator.h"
 /****************************************************************/
 /* Function:   main                                              */
 /* Inputs:     none                                              */
@@ -46,6 +46,6 @@ int main() {
         std::getline(std::cin, expression);
     }
 
-    std::cout << "Program ended. See you next time!" << std::endl;
+    std::cout << "Program ended. See you next time!\n" << std::endl;
     return 0;
 }
