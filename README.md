@@ -16,6 +16,9 @@ This repository contains my C++ programming practice problems and solutions comp
 - `10-Cstring/` - String manipulation
 - `11-Files-operations/` - File I/O operations
 - `ADT-1/` - Abstract Data Types
+- `ADT-2/` - Prefix Expression Evaluator using a Stack
+- `ADT-3/` - Organizes text using LinkedList
+- `ADT-4/` - Manage employee records using BST
 - `Mini-Projects/` - Small programming projects
 
 ## 📚 Learning Resources
